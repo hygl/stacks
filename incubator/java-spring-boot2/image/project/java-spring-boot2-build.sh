@@ -71,9 +71,9 @@ common() {
     run_mvn install -q -f /project/appsody-boot2-pom.xml
   fi
 
-  local p_groupId=$(xmlstarlet sel -T -N x="http://maven.apache.org/POM/4.0.0" -t -v "/x:project/x:parent/x:groupId" pom.xml)
-  local p_artifactId=$(xmlstarlet sel -T -N x="http://maven.apache.org/POM/4.0.0" -t -v "/x:project/x:parent/x:artifactId" pom.xml)
-  local p_version=$(xmlstarlet sel -T -N x="http://maven.apache.org/POM/4.0.0" -t -v "/x:project/x:parent/x:version" pom.xml)
+  local p_groupId=$(xmlstarlet sel -T -N x="http://maven.apache.org/POM/4.0.0" -t -v "/x:project/x:parent/x:groupId" /project/appsody-boot2-pom.xml)
+  local p_artifactId=$(xmlstarlet sel -T -N x="http://maven.apache.org/POM/4.0.0" -t -v "/x:project/x:parent/x:artifactId" /project/appsody-boot2-pom.xml)
+  local p_version=$(xmlstarlet sel -T -N x="http://maven.apache.org/POM/4.0.0" -t -v "/x:project/x:parent/x:version" /project/appsody-boot2-pom.xml)
 
   # Require parent in pom.xml
   if [ "${p_groupId}" != "${GROUP_ID}" ] || [ "${p_artifactId}" != "${ARTIFACT_ID}" ]; then
